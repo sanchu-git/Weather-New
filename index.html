@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body >
+    <div class="container-fluid px-1 px-sm-3 py-5  mx-auto">
+        <div class="row  d-flex justify-content-center">
+            <div class="row card0">
+                <div class="card1 col-lg-8 col-md-7">
+                    <h1 style="color: white;">WEATHER</h1>
+                    <div class="text-center">
+                        <img id="img" class="image mt-5"
+                            src="https://helpdeskgeek.com/wp-content/pictures/2022/02/weather-widget.jpeg">
+                    </div>
+                    <div id="result" class="row px-3 mt-3 mb-3">
+                        <!--  -->
+                    </div>
+                </div>
+                <div class="card2 col-lg-4 col-md-5">
+                    <div class="row px-3">
+                        <input type="text" name="location" placeholder="Another location" class="mb-5">
+
+                        <button id="btn" onclick="weatherDetails()"><i class="fa-solid fa-magnifying-glass" style="color: #3c85fb;"></i></button>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="result1" class="mr-5">
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const weatherDetails = async () => {
+        console.log("inside getWeather");
+        // api call
+        const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=kakkanad&appid=8ac5c4d57ba6a4b3dfcf622700447b1e&units=metric")
+        const weather = await response.json()
+        const name = weather.name
+        const temp = weather.main.temp
+        const feelsLike = weather.main.feels_like
+        const country = weather.sys.country
+        const humidity = weather.main.humidity
+        const wind = weather.wind.speed
+        const pressure = weather.main.pressure
+
+        result.innerHTML = `
+        
+            
+            <h1 class="large-font mr-3">${temp}</h1>
+                        <div class="d-flex flex-column mr-3">
+                           
+                            <h3> feels like ${feelsLike}</h3>
+                            <h2 class="mt-3 mb-0">${name}</h2>
+                            <small>10:36 - Tuesday, 22 Oct '19</small>
+                        </div>
+
+
+        
+        
+        `
+        result1.innerHTML = `
+        
+        <div class="line my-5"></div>
+
+                        <p>Weather Details</p>
+                        <hr>
+                        <div class="row px-3">
+                            <p class="light-text">Country</p>
+                            <p class="ml-auto">${country}</p>
+                            <hr>
+                        </div>
+                        <div class="row px-3">
+                            <p class="light-text">Humidity</p>
+                            <p class="ml-auto">${humidity}</p>
+                            <hr>
+                        </div>
+                        <div class="row px-3">
+                            <p class="light-text">Wind</p>
+                            <p class="ml-auto">${wind}</p>
+                            <hr>
+                        </div>
+                        <div class="row px-3">
+                            <p class="light-text">Pressure</p>
+                            <p class="ml-auto">${pressure}</p>
+                            <hr>
+                        </div>
+
+                        <div class="line mt-3"></div>
+        
+        `
+    }
+</script>
+
+</html>

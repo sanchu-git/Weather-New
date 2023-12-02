@@ -1,0 +1,90 @@
+body {
+    color: #fff;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url('https://wallpapers.com/images/hd/clouds-4k-4wd74d6r7i4dif01.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card0 {
+    width: 94%;
+}
+
+
+
+.large-font {
+    font-size: 70px;
+    font-family: Arial;
+}
+
+#img{
+    width: 700px;
+    height: 500px;
+    opacity: 0.5;
+}
+
+
+.card2 {
+    background-color: #607d8bc5;
+    padding: 0px 0px 40px 40px;
+}
+
+input {
+    background-color: #607d8b8c;
+    padding: 24px 0px 12px 0px ;
+    width: 80%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #CFD8DC;
+    font-size: 16px;
+    color: #fff;
+}
+
+input:focus {
+    -moz-box-shadow: none ;
+    -webkit-box-shadow: none ;
+    box-shadow: none ;
+    border-bottom: 1px solid #fff;
+    outline-width: 0;
+    font-weight: 400;
+}
+
+::placeholder {
+    color: #B0BEC5;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #B0BEC5 ;
+}
+
+::-ms-input-placeholder {
+    color: #B0BEC5;
+}
+
+#btn{
+    width: 50px;
+    height: 50px;
+}
+
+
+.light-text {
+    color: #B0BEC5;
+}
+
+.suggestion:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.line {
+    height: 1px;
+    background-color: #B0BEC5;
+}
+
+@media screen and (max-width: 500px) {
+    .card1 {
+        padding-left: 26px;
+    }
+}
